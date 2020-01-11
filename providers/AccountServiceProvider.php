@@ -5,9 +5,9 @@ namespace Ezoheux\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * The user management service provider.
+ * The account service provider.
  */
-class UserManagementServiceProvider extends ServiceProvider
+class AccountServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -16,8 +16,9 @@ class UserManagementServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadTranslationsFrom(__DIR__ . '/../translations/account', 'account');
         $this->publishes([
-            __DIR__ . '/../config/user-management.php' => config_path('user-management.php'),
+            __DIR__ . '/../translations/account' => resource_path('lang/vendor/courier'),
         ]);
     }
 }
