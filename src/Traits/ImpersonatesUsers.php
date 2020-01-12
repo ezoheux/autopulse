@@ -33,7 +33,7 @@ trait ImpersonatesUsers
         $user = User::find($id);
         $data = $request->all();
         session()->put('session.impersonate.user', $data['id']);
-        return $this->userImpersonating($user) ?: redirect()->route('home')->with('status', __('auth.impersonate_user_take', ['username', $user->username]));
+        return $this->userImpersonating($user) ?: redirect()->route('home')->with('status', trans('autopulse::auth.impersonate_user_take', ['username', $user->username]));
     }
 
     /**
