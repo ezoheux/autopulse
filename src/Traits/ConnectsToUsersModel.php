@@ -7,6 +7,11 @@ namespace Ezoheux\App\Traits;
  */
 trait ConnectsToUsersModel
 {
+    /** @var array $fillable The attributes that are mass assignable. */
+    protected $fillable = [
+        'slug', 'display', 'description',
+    ];
+
     /**
      * The relationship between the user model.
      *
