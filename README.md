@@ -78,7 +78,7 @@ php artisan vendor:publish --provider="Ezoheux\App\AutopulseServiceProvider"
 ```php
 <?php
 
-use Ezoheux\App\Autopulse
+use Ezoheux\App\Autopulse;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ use Ezoheux\App\Autopulse
 
 // ...
 
-Autopulse::routes()
+Autopulse::routes();
 
 // ...
 
