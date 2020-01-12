@@ -49,6 +49,6 @@ class PasswordVerifyRule implements Rule
      */
     public function message()
     {
-        return '';
+        return trans('autopulse::account.incorrect_password');
     }
 }
