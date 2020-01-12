@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ezoheux\\App\\": "app/"
+            "Ezoheux\\App\\": "./src"
         }
     },
     "prefer-stable": true
