@@ -6,7 +6,7 @@ use App\Role;
 use App\User;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * The impersonate users trait.
@@ -24,16 +24,17 @@ trait ImpersonatesUsers
      */
     public function take($id)
     {
-        $validator = Validator::make(['id' => $id], [
-            'id' => ['required', 'exists:users', new ImpersonateUserRule(auth()->user())],
-        ]);
-        if ($validator->fails()) {
-            return redirect()->route('users.index')->withErrors($validator);
+        $user = Auth::user();
+        if ($user->hasPermission('impersonator')) {
+            if ($accessUser = User::find($id)) {
+                if ($accessUser->hasPermission('impersonatable')) {
+                    session()->put('session.impersonate.user', $data['id']);
+                    return $this->userImpersonating($user) ?: redirect()->route('home')->with('status', trans('autopulse::auth.impersonate_user_take', ['username', $user->username]));
+                }
+            }
+            return redirect()->route('users.index')->with('error', trans('autopulse::auth.impersonate_user_failed'));
         }
-        $user = User::find($id);
-        $data = $request->all();
-        session()->put('session.impersonate.user', $data['id']);
-        return $this->userImpersonating($user) ?: redirect()->route('home')->with('status', trans('autopulse::auth.impersonate_user_take', ['username', $user->username]));
+        return redirect()->route('home');
     }
 
     /**
@@ -43,8 +44,11 @@ trait ImpersonatesUsers
      */
     public function leave()
     {
-        session()->forget('session.impersonate.user');
-        return $this->userLeftImpersonating(auth()->user()) ?: redirect()->route('users.index')->with('status', trans('autopulse::auth.impersonate_user_leave'));
+        if ($user->hasPermission('impersonator')) {
+            session()->forget('session.impersonate.user');
+            return $this->userLeftImpersonating(auth()->user()) ?: redirect()->route('users.index')->with('status', trans('autopulse::auth.impersonate_user_leave'));
+        }
+        return redirect()->route('home');
     }
 
     /**
