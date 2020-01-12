@@ -68,3 +68,4 @@ trait ImpersonatesUsers
     protected function userLeftImpersonating($user)
     {
     }
+}
