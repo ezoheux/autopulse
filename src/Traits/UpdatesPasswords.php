@@ -45,7 +45,7 @@ trait UpdatesPasswords
         $data = $request->all();
         $user->password = Hash::make($data['password']);
         $user->save();
-        return $this->passwordUpdated($request, $user) ?: redirect($this->redirectPath())->with('status', __('auth.password_changed'));
+        return $this->passwordUpdated($request, $user) ?: redirect($this->redirectPath())->with('status', __('autopulse::account.password_changed'));
     }
 
     /**
