@@ -1,0 +1,28 @@
+{
+    "name": "ezoheux/autopulse",
+    "type": "laravel-package",
+    "description": "An amazing laravel service provider to implement user management in you laravel web application.",
+    "keywords": [
+        "laravel",
+        "laravel-package",
+        "laravel-service-provider",
+        "authentication",
+        "user-management",
+        "elegant",
+        "secure"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "^6"
+    },
+    "config": {
+        "optimize-autoloader": true,
+    },
+    "autoload": {
+        "psr-4": {
+            "Ezoheux\\App\\": "app/"
+        }
+    },
+    "prefer-stable": true
+}
