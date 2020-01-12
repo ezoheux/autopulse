@@ -4,6 +4,7 @@ namespace Ezoheux\App\Authorization;
 
 use App\Role;
 use App\User;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * The authorization handler.
