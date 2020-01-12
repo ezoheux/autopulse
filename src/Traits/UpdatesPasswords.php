@@ -22,7 +22,7 @@ trait UpdatesPasswords
      */
     public function show()
     {
-        return view('ezoheux::account.password');
+        return view('autopulse::account.password');
     }
 
     /**
@@ -37,7 +37,7 @@ trait UpdatesPasswords
         $user = $request->user();
         $validator = Validator::make($request->all(), [
             'current_password' => ['required', 'string', new PasswordVerifyRule($user)],
-            'password'         => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         if ($validator->fails()) {
             return redirect()->route('password.handler')->withErrors($validator);
