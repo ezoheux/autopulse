@@ -17,7 +17,7 @@ trait ConnectsToUsersModel
      *
      * @return mixed Returns the relationship.
      */
-    public function roles()
+    public function users()
     {
         return $this->belongsToMany('App\User');
     }
