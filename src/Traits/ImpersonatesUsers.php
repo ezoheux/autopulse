@@ -25,9 +25,10 @@ trait ImpersonatesUsers
     public function take($id)
     {
         $user = Auth::user();
-        if ($user->hasPermission('impersonator')) {
+        if ($user->hasPermission('impersonte.impersonator')) {
             if ($accessUser = User::find($id)) {
-                if ($accessUser->hasPermission('impersonatable')) {
+                if (!$accessUser->hasPermission('impersonte.protection')
+                   || $accessUser->hasPermission('impersonte.impersonator')) {
                     session()->put('session.impersonate.user', $data['id']);
                     return $this->userImpersonating($user) ?: redirect()->route('home')->with('status', trans('autopulse::auth.impersonate_user_take', ['username', $user->username]));
                 }
@@ -44,7 +45,7 @@ trait ImpersonatesUsers
      */
     public function leave()
     {
-        if ($user->hasPermission('impersonator')) {
+        if ($user->hasPermission('impersonte.impersonator')) {
             session()->forget('session.impersonate.user');
             return $this->userLeftImpersonating(auth()->user()) ?: redirect()->route('users.index')->with('status', trans('autopulse::auth.impersonate_user_leave'));
         }
