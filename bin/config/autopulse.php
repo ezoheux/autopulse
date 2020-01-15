@@ -2,6 +2,6 @@
 
 return [
 
-    'username.handler' => true,
+    'username.handler' => false,
 
 ];
