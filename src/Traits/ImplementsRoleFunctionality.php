@@ -8,16 +8,6 @@ namespace Ezoheux\App\Traits;
 trait ImplementsRoleFunctionality
 {
     /**
-     * The relationship between the role model.
-     *
-     * @return mixed Returns the relationship.
-     */
-    public function roles()
-    {
-        return $this->belongsToMany('App\Role');
-    }
-
-    /**
      * Check to see if the user has a role.
      *
      * @param mixed $role The role to check against.
