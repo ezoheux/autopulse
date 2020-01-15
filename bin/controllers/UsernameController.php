@@ -13,7 +13,7 @@ class UsernameController extends Controller
 {
     use UpdatesUsernames;
 
-    /** @var string $redirectTo Where to redirect users after the password has been updated. */
+    /** @var string $redirectTo Where to redirect users after the username has been updated. */
     protected $redirectTo = '/account/username';
 
     /**
