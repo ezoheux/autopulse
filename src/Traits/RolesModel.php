@@ -5,7 +5,7 @@ namespace Ezoheux\App\Traits;
 /**
  * The role model trait.
  */
-trait RoleModel
+trait RolesModel
 {
     /** @var array $fillable The attributes that are mass assignable. */
     protected $fillable = [
