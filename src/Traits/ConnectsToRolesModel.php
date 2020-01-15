@@ -7,11 +7,6 @@ namespace Ezoheux\App\Traits;
  */
 trait ConnectsToRolesModel
 {
-    /** @var array $fillable The attributes that are mass assignable. */
-    protected $fillable = [
-        'slug', 'display', 'description',
-    ];
-
     /**
      * The relationship between the role model.
      *
