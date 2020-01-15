@@ -19,6 +19,8 @@ class AutopulseServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../bin/migrations');
         $this->publishes([
             __DIR__ . '/../bin/config/autopulse.php' => config_path('autopulse.php'),
+            __DIR__ . '/../bin/controllers' => app_path('Http/Controllers'),
+            __DIR__ . '/../bin/models' => app_path(),
         ]);
     }
 }
