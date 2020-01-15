@@ -34,7 +34,7 @@ trait UpdatesUsernames
     {
         $user = $request->user();
         $validator = Validator::make($request->all(), [
-            'username' => ['required', 'string', 'alpha_num',  'min:4', 'max:20', 'unique:users', 'confirmed'],
+            'username' => config('autopulse.username_validation_logic', ['required', 'string', 'alpha_num',  'min:4', 'max:20', 'unique:users', 'confirmed']),
         ]);
         if ($validator->fails()) {
             return redirect()->route('username.handler')->withInput()->withErrors($validator);
