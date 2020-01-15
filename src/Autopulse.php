@@ -1,7 +1,17 @@
 <?php
 
+namespace Ezoheux\App;
+
+/**
+ * The main autopulse handler.
+ */
 class Autopulse
 {
+    /**
+     * Run the autopulse route.
+     *
+     * @return void Returns nothing.
+     */
     public static function routes()
     {
         Route::get('/account/password', 'Autopulse\PasswordController@show')->name('password.handler');
