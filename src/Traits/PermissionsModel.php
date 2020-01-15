@@ -5,7 +5,7 @@ namespace Ezoheux\App\Traits;
 /**
  * The permission model trait.
  */
-trait PermissionModel
+trait PermissionsModel
 {
     /** @var array $fillable The attributes that are mass assignable. */
     protected $fillable = [
