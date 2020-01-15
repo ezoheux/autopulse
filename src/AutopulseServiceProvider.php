@@ -17,5 +17,8 @@ class AutopulseServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__ . '/../bin/migrations');
+        $this->publishes([
+            __DIR__ . '/../bin/config/autopulse.php' => config_path('autopulse.php'),
+        ]);
     }
 }
