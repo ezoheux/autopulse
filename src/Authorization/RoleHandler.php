@@ -7,9 +7,9 @@ use App\User;
 use Illuminate\Support\Facades\Gate;
 
 /**
- * The authorization handler.
+ * The authorization role handler.
  */
-class Handler
+class RoleHandler
 {
     /**
      * Adds the authorization gates for the role functionality.
