@@ -15,7 +15,7 @@ class RoleCheck
      *
      * @param \Illuminate\Http\Request $request The incoming HTTP request.
      * @param \Closure                 $next    The next middleware.
-     * @param array                    $data    The data needed for the middleware.
+     * @param string                   $data    The data needed for the middleware.
      *
      * @return mixed Returns the response.
      */
