@@ -12,37 +12,7 @@ composer require ezoheux/autopulse
 
 After you need to do a couple of additional steps for this service provider to work
 
-1. Add this service provider into your app config located in `root-directory/config/app.php`. Here is an example of how to exactly add it.
-
-```php
-<?php
-
-// ...
-
-/*
-|--------------------------------------------------------------------------
-| Autoloaded Service Providers
-|--------------------------------------------------------------------------
-|
-| The service providers listed here will be automatically loaded on the
-| request to your application. Feel free to add your own services to
-| this array to grant expanded functionality to your applications.
-|
-*/
-
-'providers' => [
-
-    // ... Laravel Service Providers
-
-    Ezoheux\App\AutopulseServiceProvider::class, // This is the service provider.
-
-    // ... App Service Providers
-
-],
-
-// ...
-
-```
+1. Add this service provider into your app config located in `root-directory/config/app.php`.
 
 2. Next, you should publish the config file, migrations, translations, and views so you are able to edit them. Simply run the artisan command below.
 
@@ -50,31 +20,7 @@ After you need to do a couple of additional steps for this service provider to w
 php artisan vendor:publish --provider="Ezoheux\App\AutopulseServiceProvider"
 ```
 
-3. Finally, you should load the routes for this service provider by adding this to your `root-directory/web/routes.php`. Just add the code below to that file.
-
-```php
-<?php
-
-use Ezoheux\App\Autopulse;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// ...
-
-Autopulse::routes();
-
-// ...
-
-```
+3. Finally, you should load the routes for this service provider by adding `Autopulse::routes();` to your `root-directory/web/routes.php`. Just add the code below to that file.
 
 You are now done and all set to go.
 
