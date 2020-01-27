@@ -19,10 +19,10 @@ class RoleCheck
      *
      * @return mixed Returns the response.
      */
-    public function handle($request, Closure $next, $data)
+    public function handle($request, Closure $next, $role)
     {
-        if (!Auth::user()->hasRole($data['role'])) {
-            return redirect()->route($data['redirectTo']);
+        if (!Auth::user()->hasRole($role)) {
+            return redirect()->route(config('autopulse.role_mismatch_redirect'));
         }
         return $next($request);
     }
