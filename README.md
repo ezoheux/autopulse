@@ -20,7 +20,7 @@ After you need to do a couple of additional steps for this service provider to w
 php artisan vendor:publish --provider="Ezoheux\App\AutopulseServiceProvider"
 ```
 
-3. Finally, you should load the routes for this service provider by adding `Autopulse::routes();` to your `root-directory/web/routes.php`. Just add the code below to that file.
+3. Finally, you should load the routes for this service provider by adding `Autopulse::routes();` to your `root-directory/web/routes.php`.
 
 You are now done and all set to go.
 
